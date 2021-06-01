@@ -60,6 +60,7 @@ const chainRoccoTick = '#22bb22';
 const chainRoccoTrack = '#bb2222';
 const chainRoccoTrick = '#2222bb';
 const chainRiochain = '#4d87f6';
+const chainSakura = '#ff5995';
 const chainShadow = '#ffa940';
 const chainSnakenet = '#f653a2';
 const chainStatemine = '#111';
@@ -215,9 +216,11 @@ export const chainColors: Record<string, string> = [
   ['Rococo', chainRocco],
   ['RioChain CC-1', chainRiochain],
   ['Riochain Staging', chainRiochain],
+  ['Sakura', chainSakura],
   ['Shadow', chainShadow],
   ['sherpax', chainChainx],
   ['Statemine', chainStatemine],
+  ['Statemine Test', chainStatemine],
   ['Statemint', nodeStatemint],
   ['Statemint Test', nodeStatemint],
   ['SubDAO PC1', chainSubDAO],
@@ -285,6 +288,7 @@ export const nodeColors: Record<string, string> = [
   ['Riochain Staging', nodeRiochain],
   ['SORA', nodeSora],
   ['Stafi node', nodeStafi],
+  ['Statemine Collator', nodeStatemint],
   ['Statemint Collator', nodeStatemint],
   ['SubDAO Collator', nodeSubDAO],
   ['subsocial node', nodeSubsocial],
@@ -295,6 +299,7 @@ export const nodeColors: Record<string, string> = [
   ['Unique Node', nodeUnique],
   ['Web3games', nodeWeb3games],
   ['Westlake', nodeWestlake],
+  ['Westmint Collator', nodeStatemint],
   ['Zeitgeist Node', nodeZeitgeist],
   ['Zeitgeist Collator', nodeZeitgeist],
   ['Zenlink Collator', nodeZenlink]

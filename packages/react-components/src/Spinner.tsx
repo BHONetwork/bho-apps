@@ -38,7 +38,6 @@ export default React.memo(styled(Spinner)`
   line-height: 1rem;
   margin: 0 auto;
   text-align: center;
-  
   &.isCover {
     bottom: 0;
     left: 0;
