@@ -27,6 +27,7 @@ import nodeAcala from './nodes/acala-circle.svg';
 import nodeApron from './nodes/apron.png';
 import nodeAres from './nodes/ares.svg';
 import nodeBeast from './nodes/beast.svg';
+import nodeBholdus from './nodes/bholdus.png';
 import nodeBifrost from './nodes/bifrost.svg';
 import nodeBitCountry from './nodes/bitcountry.svg';
 import nodeCanvas from './nodes/canvas-2.png';
@@ -114,6 +115,7 @@ export const chainLogos: Record<string, unknown> = [
   ['Apron PC1', nodeApron],
   ['Ares PC1', nodeAres],
   ['Beast Developer', nodeBeast],
+  ['Bholdus Testnet', nodeBholdus],
   ['Crust PC1', nodeCrust],
   ['ChainX', nodeChainx],
   ['darwinia crab', nodeCrab],
@@ -205,6 +207,7 @@ export const nodeLogos: Record<string, unknown> = [
   ['Ares Parachain Collator', nodeAres],
   ['airalab-robonomics', nodeRobonomics],
   ['Beast Node', nodeBeast],
+  ['Bholdus Node', nodeBholdus],
   ['Bifrost Node', nodeBifrost],
   ['Bifrost', nodeBifrost],
   ['BitCountry Node', nodeBitCountry],
@@ -333,6 +336,7 @@ export const namedLogos: Record<string, unknown> = {
   acala: nodeAcala,
   alexander: nodePolkadot,
   beast: nodeBeast,
+  bholdus: nodeBholdus,
   bifrost: nodeBifrost,
   bitcountry: nodeBitCountry,
   canvas: nodeCanvas,

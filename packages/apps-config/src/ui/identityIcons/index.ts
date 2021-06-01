@@ -14,7 +14,7 @@ export const identityNodes: Record<string, string> = [
   ['polkadot-js', 'polkadot'],
   ['subsocial-node', 'substrate'],
   ['substrate-node', 'substrate'],
-  ['polymesh-node', 'substrate']
+  ['polymesh-node', 'substrate'],
 ].reduce((icons, [spec, icon]): Record<string, string> => ({
   ...icons,
   [spec.toLowerCase().replace(/-/g, ' ')]: icon
