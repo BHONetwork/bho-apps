@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0.0-1 May 31, 2021
+## 1 Jun, 2021
 
 Changes:
 

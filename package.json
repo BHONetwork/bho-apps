@@ -6,7 +6,7 @@
   "author": "Bhodus <dev@bholdus.finance>",
   "private": true,
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.91.3-50",
   "license": "Apache-2",
   "homepage": ".",
   "workspaces": [
