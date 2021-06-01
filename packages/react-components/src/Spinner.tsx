@@ -4,7 +4,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import spinnerSrc from './Spinner.png';
+import spinnerSrc from './bholdus.png';
 import { useTranslation } from './translate';
 
 interface Props {
@@ -25,7 +25,7 @@ function Spinner ({ className = '', label, noLabel, variant = 'app' }: Props): R
   return (
     <div className={`${className} ui--Spinner${variant === 'cover' ? ' isCover' : ''}`}>
       <img
-        className={variant === 'push' ? '' : 'highlight--bg highlight--border'}
+        className={variant === 'push' ? '' : 'highlight--border rotate'}
         src={spinnerSrc as string}
       />
       {!noLabel && variant === 'app' && <div className='text'>{label || t('Retrieving data')}</div>}
@@ -38,7 +38,7 @@ export default React.memo(styled(Spinner)`
   line-height: 1rem;
   margin: 0 auto;
   text-align: center;
-
+  
   &.isCover {
     bottom: 0;
     left: 0;
@@ -54,8 +54,22 @@ export default React.memo(styled(Spinner)`
   img {
     border: 1px solid transparent;
     border-radius: 10rem;
+    background-color: #ffffff;
+    width: 40px;
+    height: 40px;
   }
-
+  .rotate {
+    animation: rotation 3s infinite linear;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
   .text {
     color: inherit !important;
     margin: 0.25rem auto 1.5rem auto;

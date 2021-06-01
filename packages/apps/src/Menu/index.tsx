@@ -28,16 +28,16 @@ interface Props {
 function createExternals (t: TFunction): ItemRoute[] {
   return [
     {
-      href: 'https://github.com/polkadot-js/apps',
+      href: 'https://github.com/bholdus/bholdus-apps',
       icon: 'code-branch',
       name: 'github',
       text: t<string>('nav.github', 'GitHub', { ns: 'apps-routing' })
-    },
-    {
-      href: 'https://wiki.polkadot.network',
-      icon: 'book',
-      name: 'wiki',
-      text: t<string>('nav.wiki', 'Wiki', { ns: 'apps-routing' })
+    // },
+    // {
+    //   href: 'https://wiki.polkadot.network',
+    //   icon: 'book',
+    //   name: 'wiki',
+    //   text: t<string>('nav.wiki', 'Wiki', { ns: 'apps-routing' })
     }
   ];
 }
@@ -170,7 +170,7 @@ export default React.memo(styled(Menu)`
   }
 
   &.isLoading {
-    background: #999 !important;
+    background: rgba(22, 176, 75, .4) !important;
 
     .menuActive {
       background: var(--bg-page);
