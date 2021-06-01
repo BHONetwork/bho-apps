@@ -24,7 +24,6 @@ import { formatBalance, isTestChain } from '@polkadot/util';
 import { defaults as addressDefaults } from '@polkadot/util-crypto/address/defaults';
 
 import ApiContext from './ApiContext';
-import { customTypes, customTypesAlias } from './customTypes';
 import registry from './typeRegistry';
 import { decodeUrlTypes } from './urlTypes';
 
@@ -195,9 +194,9 @@ function Api ({ children, store, url }: Props): React.ReactElement<Props> | null
   useEffect((): void => {
     const provider = new WsProvider(url);
     const signer = new ApiSigner(registry, queuePayload, queueSetTxStatus);
-    const types = { ...getDevTypes(), ...customTypes };
+    const types = getDevTypes();
 
-    api = new ApiPromise({ provider, registry, signer, types, typesAlias: customTypesAlias, typesBundle, typesChain });
+    api = new ApiPromise({ provider, registry, signer, types, typesBundle, typesChain });
 
     api.on('connected', () => setIsApiConnected(true));
     api.on('disconnected', () => setIsApiConnected(false));
