@@ -8,12 +8,12 @@ import type { OverrideBundleDefinition } from '@polkadot/types/types';
 
 const definitions: OverrideBundleDefinition = {
     alias: {
-        bholdusPrivateSales: {
-            BalanceUnlockPercent: 'u8',
-            BlockNumberFor: 'u32',
-            LockIdentifier: '[u8;8]',
-            RoundId: 'u32'
-        }
+        // bholdusPrivateSales: {
+        //     BalanceUnlockPercent: 'u8',
+        //     BlockNumberFor: 'u32',
+        //     LockIdentifier: '[u8;8]',
+        //     RoundId: 'u32'
+        // }
     },
     types: [
         {
