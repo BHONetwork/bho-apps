@@ -1,12 +1,12 @@
 {
   "name": "polkadot-apps",
-  "repository": "https://github.com/polkadot-js/apps",
+  "repository": "https://github.com/Bholdus/bholdus-apps",
   "main": "packages/apps-electron/build/electron.js",
-  "description": "An Apps portal into the Polkadot network",
-  "author": "Jaco Greeff <jacogr@gmail.com>",
+  "description": "An Apps portal into the Bholdus network",
+  "author": "Bhodus <dev@bholdus.finance>",
   "private": true,
   "type": "module",
-  "version": "0.91.3-50",
+  "version": "1.0.0-1",
   "license": "Apache-2",
   "homepage": ".",
   "workspaces": [

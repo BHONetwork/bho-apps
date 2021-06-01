@@ -7,22 +7,30 @@ import type { OverrideBundleDefinition } from '@polkadot/types/types';
 /* eslint-disable sort-keys */
 
 const definitions: OverrideBundleDefinition = {
+    alias: {
+        bholdusPrivateSales: {
+            BalanceUnlockPercent: 'u8',
+            BlockNumberFor: 'u32',
+            LockIdentifier: '[u8;8]',
+            RoundId: 'u32'
+        }
+    },
     types: [
         {
-            minmax: [0, 8],
+            minmax: [0, 32],
             types: {
-                Address: 'AccountId',
-                Keys: 'SessionKeys2',
-                LookupSource: 'AccountId',
-                Schedule: 'ScheduleTo258'
-            }
-        },
-        {
-            // updated to Substrate master
-            minmax: [9, undefined],
-            types: {
-                Keys: 'SessionKeys2'
-            }
+                BalanceUnlockPercent: 'u8',
+                BlockNumberFor: 'u32',
+                LockIdentifier: '[u8; 8]',
+                RoundId: 'u32',
+                BalanceLockSetting: {
+                  unlock_percents: 'Vec<BalanceUnlockPercent>',
+                  lock_durations: 'Vec<BlockNumber>',
+                  lock_identifiers: 'Vec<LockIdentifier>',
+                  min_transfer_amount: 'Option<Balance>',
+                  max_transfer_amount: 'Option<Balance>'
+                }
+            },
         }
     ]
 };

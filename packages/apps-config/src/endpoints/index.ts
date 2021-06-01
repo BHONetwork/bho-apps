@@ -4,15 +4,13 @@
 import type { TFunction } from 'i18next';
 import type { LinkOption } from '../settings/types';
 
-import { createCustom, createDev, createOwn } from './development';
+import { createDev} from './development';
 import { createProduction } from './production';
-import { createProductionRelays } from './productionRelays';
 import { createTesting } from './testing';
-import { createTestingRelays } from './testingRelays';
 
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
-export function createWsEndpoints(t: TFunction): LinkOption[] {
+export function createWsEndpoints (t: TFunction): LinkOption[] {
   return [
     {
       isDisabled: false,

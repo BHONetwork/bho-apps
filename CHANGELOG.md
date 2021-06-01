@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.0.0-1 May 31, 2021
+
+Changes:
+
+- Extend custom types for Bholdus Private Sales Pallet
+
 ## 0.91.2 May 17, 2021
 
 Changes:
