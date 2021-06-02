@@ -1,18 +1,16 @@
 // Copyright 2017-2021 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
-
+// require('dotenv').config();
 const fs = require('fs');
 const pinataSDK = require('@pinata/sdk');
 const CrustPinner = require('@crustio/crust-pin').default;
 const cloudflare = require('dnslink-cloudflare');
 const execSync = require('@polkadot/dev/scripts/execSync.cjs');
 
-const { createWsEndpoints } = require('../packages/apps-config/build/endpoints/index.cjs');
 const pkgJson = require('../package.json');
 
-// https://gateway.pinata.cloud/ipfs/
 const GATEWAY = 'https://ipfs.io/ipfs/';
-const DOMAIN = 'dotapps.io';
+const DOMAIN = 'apps.bholdus.com';
 const DST = 'packages/apps/build';
 const SRC = 'packages/apps/public';
 const WOPTS = { encoding: 'utf8', flag: 'w' };
@@ -26,6 +24,15 @@ function writeFiles (name, content) {
   [DST, SRC].forEach((root) =>
     fs.writeFileSync(`${root}/ipfs/${name}`, content, WOPTS)
   );
+}
+
+
+function gitSetup () {
+    execSync('git config push.default simple');
+    execSync('git config merge.ours.driver true');
+    execSync('git config user.name "Github Actions"');
+    execSync('git config user.email "action@github.com"');
+    execSync('git checkout master');
 }
 
 function updateGh (hash) {
@@ -59,6 +66,7 @@ async function pin () {
 
   writeFiles('index.html', html);
   writeFiles('pin.json', JSON.stringify(result));
+  gitSetup();
   updateGh(result.IpfsHash);
 
   // 2. Decentralized pin on Crust
@@ -91,39 +99,33 @@ async function unpin (exclude) {
 }
 
 async function dnslink (hash) {
-  const records = createWsEndpoints(() => '')
-    .map((e) => e.dnslink)
-    .reduce((all, dnslink) => {
-      if (dnslink && !all.includes(dnslink)) {
-        all.push(dnslink);
-      }
+  const splitDomain = DOMAIN.split('.');
+  let subDomain;
 
-      return all;
-    }, [null])
-    .map((sub) =>
-      ['_dnslink', sub, DOMAIN]
-        .filter((entry) => !!entry)
-        .join('.')
-    );
+  if (splitDomain.length > 2) {
+    subDomain = DOMAIN.split('.')[0];
+  }
 
-  await Promise.all(records.map((record) =>
-    cloudflare(
-      { token: process.env.CF_API_TOKEN },
-      { link: `/ipfs/${hash}`, record, zone: DOMAIN }
-    )
-  ));
+  const domain = DOMAIN.replace(`${subDomain}.`, '');
 
-  console.log(`Dnslink ${hash} for ${records.join(', ')}`);
+  await cloudflare(
+    { token: process.env.CF_API_TOKEN },
+    { link: `/ipfs/${hash}`, record: `_dnslink.${DOMAIN}`, zone: domain }
+  );
+
+  console.log(`Dnslink ${hash} for _dnslink.${DOMAIN}`);
 }
 
 async function main () {
   // only run on non-beta versions
-  if (!pkgJson.version.includes('-')) {
-    const hash = await pin();
+  console.log(process.env.CRUST_SEEDS);
 
-    await dnslink(hash);
-    await unpin(hash);
-  }
+  // if (pkgJson.version.includes('-')) {
+  const hash = await pin();
+
+  await dnslink(hash);
+  await unpin(hash);
+  // }
 }
 
 main()

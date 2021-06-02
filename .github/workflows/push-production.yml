@@ -1,0 +1,30 @@
+name: Production
+on:
+  push:
+    branches:
+      - production
+jobs:
+  # publish to gh-pages (& IPFS when a release is detected)
+  www:
+    strategy:
+      matrix:
+        step: ['build:release:www']
+    name: ${{ matrix.step }}
+    if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'polkadot-js/apps'"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.GH_PAT }}
+    - name: ${{ matrix.step }}
+      env:
+        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        CRUST_SEEDS: ${{ secrets.CRUST_SEEDS }}
+        GH_PAGES_SRC: packages/apps/build
+        GH_PAT: ${{ secrets.GH_PAT }}
+        GH_RELEASE_GITHUB_API_TOKEN: ${{ secrets.GH_PAT }}
+        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+        PINATA_SECRET_KEY: ${{ secrets.PINATA_SECRET_KEY }}
+      run: |
+        yarn install --immutable | grep -v 'YN0013'
+        yarn ${{ matrix.step }}
