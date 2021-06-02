@@ -4,9 +4,10 @@
 import type { TFunction } from 'i18next';
 import type { LinkOption } from '../settings/types';
 
-import { createDev} from './development';
+import { createDev } from './development';
 import { createProduction } from './production';
 import { createTesting } from './testing';
+
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
 export function createWsEndpoints (t: TFunction): LinkOption[] {

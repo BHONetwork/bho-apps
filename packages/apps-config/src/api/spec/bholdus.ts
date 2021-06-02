@@ -7,26 +7,26 @@ import type { OverrideBundleDefinition } from '@polkadot/types/types';
 /* eslint-disable sort-keys */
 
 const definitions: OverrideBundleDefinition = {
-    alias: {
-    },
-    types: [
-        {
-            minmax: [0, 32],
-            types: {
-                BalanceUnlockPercent: 'u8',
-                BlockNumberFor: 'u32',
-                LockIdentifier: '[u8; 8]',
-                RoundId: 'u32',
-                BalanceLockSetting: {
-                  unlock_percents: 'Vec<BalanceUnlockPercent>',
-                  lock_durations: 'Vec<BlockNumber>',
-                  lock_identifiers: 'Vec<LockIdentifier>',
-                  min_transfer_amount: 'Option<Balance>',
-                  max_transfer_amount: 'Option<Balance>'
-                }
-            },
+  alias: {
+  },
+  types: [
+    {
+      minmax: [0, 32],
+      types: {
+        BalanceUnlockPercent: 'u8',
+        BlockNumberFor: 'u32',
+        LockIdentifier: '[u8; 8]',
+        RoundId: 'u32',
+        BalanceLockSetting: {
+          unlock_percents: 'Vec<BalanceUnlockPercent>',
+          lock_durations: 'Vec<BlockNumber>',
+          lock_identifiers: 'Vec<LockIdentifier>',
+          min_transfer_amount: 'Option<Balance>',
+          max_transfer_amount: 'Option<Balance>'
         }
-    ]
+      }
+    }
+  ]
 };
 
 export default definitions;
