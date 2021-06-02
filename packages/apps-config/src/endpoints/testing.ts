@@ -19,7 +19,7 @@ export function createTesting (t: TFunction): LinkOption[] {
     // alphabetical based on chain name, e.g. Amber, Arcadia, Beresheet, ...
     {
       info: 'bholdus',
-      text: t('rpc.test.bholdus', 'Bholdus', { ns: 'apps-config' }),
+      text: t('rpc.test.bholdus', 'Bholdus Testnet', { ns: 'apps-config' }),
       providers: {
         'Bholdus Network': 'wss://testnet.bholdus.com'
       }
