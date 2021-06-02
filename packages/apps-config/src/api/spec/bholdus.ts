@@ -11,7 +11,7 @@ const definitions: OverrideBundleDefinition = {
   },
   types: [
     {
-      minmax: [0, 32],
+      minmax: [0, undefined],
       types: {
         BalanceUnlockPercent: 'u8',
         BlockNumberFor: 'u32',
