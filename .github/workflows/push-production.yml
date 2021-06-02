@@ -4,13 +4,13 @@ on:
     branches:
       - production
 jobs:
-  # publish to gh-pages (& IPFS when a release is detected)
+  # publish to IPFS 
   www:
     strategy:
       matrix:
         step: ['build:release:www']
     name: ${{ matrix.step }}
-    if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'polkadot-js/apps'"
+    if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'bholdus/bholdus-apps'"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
