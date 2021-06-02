@@ -7,6 +7,8 @@
 // anything for a specific chain, most would probably fit into the node category (but allow for chain-specific)
 // alphabetical
 import chainDusty from './chains/dusty.png';
+import chainEquilibrium from './chains/equilibrium.svg';
+import chainGenshiro from './chains/genshiro.svg';
 import chainHydrate from './chains/hydrate.png';
 import chainKusama from './chains/kusama-128.gif';
 import chainPolkaBTC from './chains/polkabtc.png';
@@ -45,7 +47,6 @@ import nodeEave from './nodes/eave.svg';
 import nodeEdgeware from './nodes/edgeware-circle.svg';
 import nodeEncointerNotee from './nodes/encointer-notee.svg';
 import nodeEncointerTeeproxy from './nodes/encointer-teeproxy.svg';
-import nodeEquilibrium from './nodes/equilibrium.svg';
 import nodeGalital from './nodes/galital-logo.png';
 import nodeGamePower from './nodes/gamepower.svg';
 import nodeGeek from './nodes/geek.svg';
@@ -123,6 +124,8 @@ export const chainLogos: Record<string, unknown> = [
   ['Darwinia PC2', nodeDarwinia],
   ['DataHighway', nodeDataHighway],
   ['Dusty', chainDusty],
+  ['EquilibriumTestnet', chainGenshiro],
+  ['Equilibrium', chainEquilibrium],
   ['Steam PC', nodeEave],
   ['Galital', nodeGalital],
   ['Galois', nodeMath],
@@ -234,8 +237,6 @@ export const nodeLogos: Record<string, unknown> = [
   ['DOTMog Node', nodeDotMog],
   ['Eave Node', nodeEave],
   ['Edgeware Node', nodeEdgeware],
-  ['Equilibrium Node', nodeEquilibrium],
-  ['Equilibrium', nodeEquilibrium],
   ['IpseTestnet', nodeIpse],
   ['Encointer Node', nodeEncointerNotee],
   ['Encointer Node noTEE', nodeEncointerNotee],
@@ -329,7 +330,7 @@ export const specLogos: Record<string, unknown> = [
   ['shell', nodeShell],
   ['statemine', nodeStatemine],
   ['statemint', nodeStatemine],
-  ['westmine', nodeStatemine]
+  ['westmint', nodeStatemine]
 ].reduce((logos, [spec, logo]): Record<string, unknown> => ({
   ...logos,
   [(spec as string).toLowerCase().replace(/-/g, ' ')]: logo
@@ -364,11 +365,12 @@ export const namedLogos: Record<string, unknown> = {
   encointer_canary: nodeEncointerNotee,
   encointer_cantillon: nodeEncointerTeeproxy,
   encointer_gesell: nodeEncointerNotee,
-  equilibrium: nodeEquilibrium,
+  equilibrium: chainEquilibrium,
   galital: nodeGalital,
   galois: nodeMath,
   gamepower: nodeGamePower,
   geek: nodeGeek,
+  genshiro: chainGenshiro,
   halongbay: nodePolkaFoundry,
   hanonycash: nodeHanonycash,
   idavoll: nodeIdavoll,
@@ -417,7 +419,6 @@ export const namedLogos: Record<string, unknown> = {
   rococoDataHighway: nodeDataHighway,
   rococoEave: nodeEave,
   rococoEncointer: nodeEncointerNotee,
-  rococoEquilibrium: nodeEquilibrium,
   rococoGalital: nodeGalital,
   rococoHydrate: chainHydrate,
   rococoIdavoll: nodeIdavoll,
@@ -469,7 +470,7 @@ export const namedLogos: Record<string, unknown> = {
   web3games: nodeWeb3games,
   westend: nodePolkadot,
   westlake: nodeWestlake,
-  westmine: nodeStatemine,
+  westmint: nodeStatemine,
   zeitgeist: nodeZeitgeist,
   zero: nodeZero
 };
