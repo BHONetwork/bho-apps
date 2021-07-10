@@ -24,8 +24,9 @@ export function createRococo (t: TFunction): EndpointOption {
     providers: {
       Parity: 'wss://rococo-rpc.polkadot.io',
       OnFinality: 'wss://rococo.api.onfinality.io/public-ws',
-      'Patract Elara': 'wss://rococo.elara.patract.io',
-      'Ares Protocol': 'wss://rococo.aresprotocol.com'
+      'Patract Elara': 'wss://rococo.elara.patract.io'
+      // 'Ares Protocol': 'wss://rococo.aresprotocol.com' // https://github.com/polkadot-js/apps/issues/5767
+      // Pinknode: 'wss://rpc.pinknode.io/rococo/explorer' // https://github.com/polkadot-js/apps/issues/5721
     },
     linked: [
       // these are the base chains
@@ -55,7 +56,6 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoStatemint',
-        isDisabled: true, // Rococo reset
         paraId: 1000,
         text: t('rpc.rococo.statemint', 'Statemint', { ns: 'apps-config' }),
         providers: {
@@ -97,15 +97,6 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rococo.bitcountry', 'Bit.Country PC1', { ns: 'apps-config' }),
         providers: {
           BitCountry: 'wss://tewai-parachain.bit.country:9955'
-        }
-      },
-      {
-        info: 'rococoCentrifuge',
-        isDisabled: true, // Rococo reset
-        paraId: 10001,
-        text: t('rpc.rococo.centrifuge', 'Centrifuge Charcoal', { ns: 'apps-config' }),
-        providers: {
-          Centrifuge: 'wss://fullnode-collator.charcoal.centrifuge.io'
         }
       },
       {
@@ -181,21 +172,28 @@ export function createRococo (t: TFunction): EndpointOption {
         }
       },
       {
-        info: 'rococoEquilibrium',
-        isDisabled: true, // Rococo reset
-        paraId: 42,
-        text: t('rpc.rococo.equilibrium', 'Equilibrium', { ns: 'apps-config' }),
-        providers: {
-          Equilibrium: 'wss://rococo.equilibrium.io'
-        }
-      },
-      {
         info: 'rococoGalital',
         isDisabled: true, // Rococo reset
         paraId: 1230,
         text: t('rpc.rococo.galital', 'Galital PC1', { ns: 'apps-config' }),
         providers: {
           StarkleyTech: 'wss://galital-rpc.starkleytech.com'
+        }
+      },
+      {
+        info: 'rococoGenshiro',
+        paraId: 2021,
+        text: t('rpc.rococo.genshiro', 'Genshiro', { ns: 'apps-config' }),
+        providers: {
+          Equilibrium: 'wss://gens-rococo.equilibrium.io'
+        }
+      },
+      {
+        info: 'rococoHalongbay',
+        paraId: 2018,
+        text: t('rpc.rococo.halongbay', 'Halongbay', { ns: 'apps-config' }),
+        providers: {
+          Halongbay: 'wss://halongbay.polkafoundry.com'
         }
       },
       {
@@ -220,7 +218,7 @@ export function createRococo (t: TFunction): EndpointOption {
         info: 'rococoIntegritee',
         isDisabled: true, // Rococo reset
         paraId: 1983,
-        text: t('rpc.rococo.integritee', 'IntegriTEE PC1', { ns: 'apps-config' }),
+        text: t('rpc.rococo.integritee', 'Integritee PC1', { ns: 'apps-config' }),
         providers: {
           SCS: 'wss://rococo.integritee.network'
         }
@@ -245,7 +243,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoKylin',
-        paraId: 2000,
+        paraId: 2013,
         text: t('rpc.kylin-node.co.uk', 'Kylin Network', { ns: 'apps-config' }),
         providers: {
           'Kylin Network': 'wss://rpc.kylin-node.co.uk'
@@ -258,6 +256,14 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rocco.litentry', 'Litentry Rostock', { ns: 'apps-config' }),
         providers: {
           Litentry: 'wss://rococov1.litentry.io'
+        }
+      },
+      {
+        info: 'rococoLoomNetwork',
+        paraId: 2043,
+        text: t('rpc.rococo.loomnetwork', 'Loom Network', { ns: 'apps-config' }),
+        providers: {
+          LoomNetwork: 'wss://rococo.dappchains.com'
         }
       },
       {
@@ -294,6 +300,14 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rococo.moonrock', 'Moonrock', { ns: 'apps-config' }),
         providers: {
           Moonrock: 'wss://wss-moonrock.gcp.purestake.run'
+        }
+      },
+      {
+        info: 'rococoOriginTrail',
+        paraId: 2037,
+        text: t('rpc.origintrail', 'OriginTrail Parachain', { ns: 'apps-config' }),
+        providers: {
+          'Trace Labs': 'wss://polkadot-js-second.origin-trail.network'
         }
       },
       {
@@ -415,17 +429,15 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoVln',
-        isDisabled: true, // Rococo reset
-        paraId: 3586,
-        text: t('rpc.rococo.vln', 'Valiu Liquidity Network PC', { ns: 'apps-config' }),
+        paraId: 2007,
+        text: t('rpc.rococo.vln', 'Valibre Network PC', { ns: 'apps-config' }),
         providers: {
-          Valiu: 'wss://vln.valiu.dev'
+          Valibre: 'wss://testnet.valibre.dev'
         }
       },
       {
         info: 'rococoZeitgeist',
-        isDisabled: true, // Rococo reset
-        paraId: 9123,
+        paraId: 2050,
         text: t('rpc.rococo.zeitgeist', 'Zeitgeist PC', { ns: 'apps-config' }),
         providers: {
           Zeitgeist: 'wss://roc.zeitgeist.pm'

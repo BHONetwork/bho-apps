@@ -11,7 +11,7 @@ interface Props {
   className?: string;
   label?: React.ReactNode;
   noLabel?: boolean;
-  variant?: 'app' | 'cover' | 'push' | 'mini';
+  variant?: 'app' | 'appPadded' | 'cover' | 'push' | 'mini';
 }
 
 // prefetch
@@ -23,12 +23,12 @@ function Spinner ({ className = '', label, noLabel, variant = 'app' }: Props): R
   const { t } = useTranslation();
 
   return (
-    <div className={`${className} ui--Spinner${variant === 'cover' ? ' isCover' : ''}`}>
+    <div className={`${className} ui--Spinner variant-${variant}`}>
       <img
         className={variant === 'push' ? '' : 'highlight--border rotate'}
         src={spinnerSrc as string}
       />
-      {!noLabel && variant === 'app' && <div className='text'>{label || t('Retrieving data')}</div>}
+      {!noLabel && variant.startsWith('app') && <div className='text'>{label || t('Retrieving data')}</div>}
     </div>
   );
 }
@@ -38,7 +38,12 @@ export default React.memo(styled(Spinner)`
   line-height: 1rem;
   margin: 0 auto;
   text-align: center;
-  &.isCover {
+
+  &.variant-appPadded {
+    margin-top: 0.5rem;
+  }
+
+  &.variant-cover {
     bottom: 0;
     left: 0;
     position: absolute;

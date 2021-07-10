@@ -7,7 +7,9 @@ import acala from './acala';
 import apron from './apron';
 import aresParachain from './ares-parachain';
 import bholdus from './bholdus';
+import beresheet from './beresheet';
 import bifrost from './bifrost';
+import bifrostAsgard from './bifrost-asgard';
 import bifrostParachain from './bifrost-parachain';
 import bitcountry from './bitcountry';
 import bitcountryParachain from './bitcountry-rococo';
@@ -22,7 +24,8 @@ import testPara from './cumulus-test-parachain';
 import darwinia from './darwinia';
 import darwiniaParachain from './darwinia-parachain';
 import datahighwayParachain from './datahighway';
-import dock from './dock';
+import dockPoaMainnet from './dock-poa-mainnet';
+import dockPoaTestnet from './dock-poa-testnet';
 import dotmog from './dotmog';
 import dusty from './dusty';
 import eave from './eave';
@@ -31,10 +34,12 @@ import encointerNodeNotee from './encointer-node-notee';
 import encointerNodeTeeproxy from './encointer-node-teeproxy';
 import encointerPara from './encointer-para';
 import equilibrium from './equilibrium';
+import fantour from './fantour';
 import galital from './galital';
 import galitalParachain from './galital-parachain';
 import galois from './galois';
 import gamepower from './gamepower';
+import genshiro from './genshiro';
 import hanonycash from './hanonycash';
 import hydrate from './hydrate';
 import idavoll from './idavoll';
@@ -44,6 +49,7 @@ import jupiter from './jupiter';
 import jupiterRococo from './jupiter-rococo';
 import kilt from './kilt';
 import konomi from './konomi';
+import kpron from './kpron';
 import kulupu from './kulupu';
 import kylin from './kylin';
 import laminar from './laminar';
@@ -55,6 +61,8 @@ import neatcoin from './neatcoin';
 import nftmart from './nftmart';
 import nodle from './nodle';
 import oakTestnet from './oak-testnet';
+import opportunity from './opportunity';
+import origintrail from './origintrail';
 import pangolin from './pangolin';
 import parami from './parami';
 import phala from './phala';
@@ -75,6 +83,7 @@ import snowbridge from './snowbridge';
 import soraSubstrate from './soraSubstrate';
 import stafi from './stafi';
 import subdao from './subdao';
+import subgame from './subgame';
 import subsocial from './subsocial';
 import ternoa from './ternoa';
 import trustbase from './trustbase';
@@ -97,12 +106,16 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'Darwinia Crab PC2': darwiniaParachain,
   'Darwinia PC2': darwiniaParachain,
   Equilibrium: equilibrium,
+  Genshiro: genshiro,
   Pangolin: pangolin,
   VLN: vln,
   'VLN-PC': vlnrococo,
   ...acala,
   apron,
   'ares-parachain': aresParachain,
+  asgard: bifrostAsgard,
+  basilisk: hydrate,
+  beresheet,
   bifrost: bifrost,
   'bifrost-parachain': bifrostParachain,
   'bitcountry-node': bitcountry,
@@ -123,14 +136,15 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'datahighway-parachain': datahighwayParachain,
   dawn: eave,
   'dev-parachain': zenlink,
-  'dock-main-runtime': dock,
-  'dock-testnet': dock,
+  'dock-main-runtime': dockPoaMainnet,
+  'dock-test-runtime': dockPoaTestnet,
   'dotmog-node': dotmog,
   dusty4: dusty,
   edgeware,
   'encointer-node-notee': encointerNodeNotee,
   'encointer-node-teeproxy': encointerNodeTeeproxy,
   'encointer-parachain': encointerPara,
+  fantour,
   galital: galital,
   'galital-collator': galitalParachain,
   gamepower,
@@ -145,7 +159,9 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'jupiter-rococo': jupiterRococo,
   khala: phalaParachain,
   'kilt-parachain': kilt,
+  'kilt-spiritnet': kilt,
   konomi,
+  kpron,
   kulupu,
   kylin,
   laminar,
@@ -165,6 +181,8 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'node-polkadex': polkadex,
   'nodle-chain': nodle,
   'oak-testnet': oakTestnet,
+  opportunity,
+  'origintrail-parachain': origintrail,
   parami,
   'phala-collator': phalaParachain,
   'phala-node': phala,
@@ -184,6 +202,7 @@ const spec: Record<string, OverrideBundleDefinition> = {
   stafi,
   steam: eave,
   subdao,
+  subgame,
   subsocial,
   subzero: zero,
   ternoa,
