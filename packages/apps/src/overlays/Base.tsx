@@ -83,7 +83,7 @@ export default React.memo(styled(BaseOverlay)`
       background: rgba(255, 196, 12, 0.05);
     }
 
-    border-color: rgba(22, 176, 75, 1);
+    border-color: rgba(31, 38, 65, 1);
   }
 
   .content {

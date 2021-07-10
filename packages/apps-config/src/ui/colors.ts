@@ -15,7 +15,7 @@ const emptyColor = '#99999';
 // alphabetical
 const chainApron = 'linear-gradient(45deg, #0099F7 0%, #2E49EB 100%)';
 const chainBitCountry = '#191a2e';
-const chainBholdus = '#16B04B';
+const chainBholdus = '#1f2641';
 const chainBeastEave = '#900048';
 const chainCrab = '#7C30DD';
 const chainCrust = '#ff8812';
@@ -92,7 +92,7 @@ const chainWestlake = 'linear-gradient(-90deg, #9400D3 0%, #5A5CA9 50%, #00BFFF 
 // based on node name
 // alphabetical
 const nodeApron = 'linear-gradient(45deg, #0099F7 0%, #2E49EB 100%)';
-const nodeBholdus = 'linear-gradient(100.94deg, #16B04B 22.46%, #39B54A 131.92%)';
+const nodeBholdus = '#1f2641';
 const nodeAres = '#70FF8B';
 const nodeBasilisk = '#9eec1b';
 const nodeBitCountry = '#191a2e';

@@ -7,7 +7,7 @@ const CrustPinner = require('@crustio/crust-pin').default;
 const cloudflare = require('dnslink-cloudflare');
 const execSync = require('@polkadot/dev/scripts/execSync.cjs');
 
-const pkgJson = require('../package.json');
+// const pkgJson = require('../package.json');
 
 const GATEWAY = 'https://ipfs.io/ipfs/';
 const DOMAIN = 'apps.bholdus.com';
@@ -26,13 +26,12 @@ function writeFiles (name, content) {
   );
 }
 
-
 function gitSetup () {
-    execSync('git config push.default simple');
-    execSync('git config merge.ours.driver true');
-    execSync('git config user.name "Github Actions"');
-    execSync('git config user.email "action@github.com"');
-    execSync('git checkout production');
+  execSync('git config push.default simple');
+  execSync('git config merge.ours.driver true');
+  execSync('git config user.name "Github Actions"');
+  execSync('git config user.email "action@github.com"');
+  execSync('git checkout production');
 }
 
 function updateGh (hash) {
