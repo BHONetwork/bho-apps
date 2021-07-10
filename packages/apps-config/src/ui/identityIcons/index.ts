@@ -6,6 +6,7 @@
 
 export const identityNodes: Record<string, string> = [
   ['centrifuge chain', 'polkadot'],
+  ['Bholdus Node', 'beachball'],
   ['joystream-node', 'beachball'],
   ['parity-polkadot', 'polkadot']
 ].reduce((icons, [node, icon]): Record<string, string> => ({
@@ -20,7 +21,8 @@ export const identitySpec: Record<string, string> = [
   ['statemine', 'polkadot'],
   ['statemint', 'polkadot'],
   ['westend', 'polkadot'],
-  ['westmint', 'polkadot']
+  ['westmint', 'polkadot'],
+  ['bholdus', 'beachball']
 ].reduce((icons, [spec, icon]): Record<string, string> => ({
   ...icons,
   [spec.toLowerCase().replace(/-/g, ' ')]: icon

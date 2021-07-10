@@ -173,7 +173,7 @@ export default React.memo(styled(Menu)`
   }
 
   &.isLoading {
-    background: rgba(22, 176, 75, .4) !important;
+    background: rgba(31, 38, 65, .4) !important;
 
     .menuActive {
       background: var(--bg-page);
