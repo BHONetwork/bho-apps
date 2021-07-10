@@ -1,11 +1,14 @@
 // Copyright 2017-2021 @polkadot/app-parachains authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import BN from 'bn.js';
+import type BN from 'bn.js';
+import type { LinkOption } from '@polkadot/apps-config/endpoints/types';
+import type { Option } from '@polkadot/apps-config/settings/types';
+
 import React, { useMemo, useState } from 'react';
 
-import { Dropdown, InputAddress, InputBalance, Modal, TxButton } from '@polkadot/react-components';
-import { useApi, useTeleport } from '@polkadot/react-hooks';
+import { ChainImg, Dropdown, InputAddress, InputBalance, MarkWarning, Modal, Spinner, TxButton } from '@polkadot/react-components';
+import { useApi, useApiUrl, useTeleport, useWeightFee } from '@polkadot/react-hooks';
 import { Available } from '@polkadot/react-query';
 import { BN_ZERO } from '@polkadot/util';
 
@@ -15,46 +18,71 @@ interface Props {
   onClose: () => void;
 }
 
+const DEST_WEIGHT = 3 * 1_000_000_000; // 3 * BaseXcmWeight on Kusama (on Rococo and Westend this is different)
 const INVALID_PARAID = Number.MAX_SAFE_INTEGER;
-const DEFAULT_WEIGHT = 100_000_000; // 30_000_000 as per the code, add a margin
+
+function createOption ({ info, paraId, text }: LinkOption): Option {
+  return {
+    text: (
+      <div
+        className='ui--Dropdown-item'
+        key={paraId}
+      >
+        <ChainImg
+          className='ui--Dropdown-icon'
+          logo={info}
+        />
+        <div className='ui--Dropdown-name'>{text}</div>
+      </div>
+    ),
+    value: paraId || -1
+  };
+}
 
 function Teleport ({ onClose }: Props): React.ReactElement<Props> | null {
   const { t } = useTranslation();
   const { api } = useApi();
   const [amount, setAmount] = useState<BN | undefined>(BN_ZERO);
-  const [hasAvailable] = useState(true);
   const [recipientId, setRecipientId] = useState<string | null>(null);
   const [senderId, setSenderId] = useState<string | null>(null);
   const [recipientParaId, setParaId] = useState(INVALID_PARAID);
-  // FIXME We need to actually calculate the destination weight
-  const [weight] = useState(DEFAULT_WEIGHT);
-  const { allowTeleport, destinations, isParachain } = useTeleport();
+  const { allowTeleport, destinations, isParaTeleport, oneWay } = useTeleport();
 
   const chainOpts = useMemo(
-    () => destinations.map(({ paraId, text }, index) => ({ text, value: paraId || index })),
+    () => destinations.map(createOption),
     [destinations]
   );
 
+  const url = useMemo(
+    () => destinations.find(({ paraId }, index) =>
+      recipientParaId === -1
+        ? index === 0
+        : recipientParaId === paraId
+    )?.value as string,
+    [destinations, recipientParaId]
+  );
+
+  const destinationApi = useApiUrl(url);
+  const weightFee = useWeightFee(DEST_WEIGHT, destinationApi);
+
   const params = useMemo(
-    () => isParachain
+    () => isParaTeleport
       ? [
         { X1: 'Parent' },
         { X1: { AccountId32: { id: recipientId, network: 'Any' } } },
         [{ ConcreteFungible: { amount, id: { X1: 'Parent' } } }],
-        weight
+        DEST_WEIGHT
       ]
       : [
         { X1: { ParaChain: recipientParaId } },
         { X1: { AccountId32: { id: recipientId, network: 'Any' } } },
         [{ ConcreteFungible: { amount, id: 'Null' } }],
-        weight
+        DEST_WEIGHT
       ],
-    [amount, isParachain, recipientId, recipientParaId, weight]
+    [amount, isParaTeleport, recipientId, recipientParaId]
   );
 
-  if (!allowTeleport || !chainOpts.length) {
-    return null;
-  }
+  const hasAvailable = !!amount && amount.gte(weightFee);
 
   return (
     <Modal
@@ -75,14 +103,19 @@ function Teleport ({ onClose }: Props): React.ReactElement<Props> | null {
             type='account'
           />
         </Modal.Columns>
-        <Modal.Columns hint={t<string>('The destination chain for this asset teleport. The transferred value will appear on this chain.')}>
-          <Dropdown
-            defaultValue={chainOpts[0]?.value}
-            label={t<string>('destination chain')}
-            onChange={setParaId}
-            options={chainOpts}
-          />
-        </Modal.Columns>
+        {chainOpts.length !== 0 && (
+          <Modal.Columns hint={t<string>('The destination chain for this asset teleport. The transferred value will appear on this chain.')}>
+            <Dropdown
+              defaultValue={chainOpts[0].value}
+              label={t<string>('destination chain')}
+              onChange={setParaId}
+              options={chainOpts}
+            />
+            {!isParaTeleport && oneWay.includes(recipientParaId) && (
+              <MarkWarning content={t<string>('Currently this is a one-way transfer since the on-chain runtime functionality to send the funds from the destination chain back to this account not yet available.')} />
+            )}
+          </Modal.Columns>
+        )}
         <Modal.Columns hint={t<string>('The beneficiary will have access to the transferred amount when the transaction is included in a block.')}>
           <InputAddress
             label={t<string>('send to address')}
@@ -90,7 +123,12 @@ function Teleport ({ onClose }: Props): React.ReactElement<Props> | null {
             type='allPlus'
           />
         </Modal.Columns>
-        <Modal.Columns hint={t<string>('If the recipient account is new, the balance needs to be more than the existential deposit on the recipient chain.')}>
+        <Modal.Columns hint={
+          <>
+            <p>{t<string>('If the recipient account is new, the balance needs to be more than the existential deposit on the recipient chain.')}</p>
+            <p>{t<string>('The amount deposited to the recipient will be net the calculated cross-chain fee.')}</p>
+          </>
+        }>
           <InputBalance
             autoFocus
             isError={!hasAvailable}
@@ -98,13 +136,35 @@ function Teleport ({ onClose }: Props): React.ReactElement<Props> | null {
             label={t<string>('amount')}
             onChange={setAmount}
           />
+          {destinationApi
+            ? (
+              <>
+                <InputBalance
+                  defaultValue={weightFee}
+                  isDisabled
+                  label={t<string>('destination transfer fee')}
+                />
+                <InputBalance
+                  defaultValue={destinationApi.consts.balances.existentialDeposit}
+                  isDisabled
+                  label={t<string>('destination existential deposit')}
+                />
+              </>
+            )
+            : (
+              <Spinner
+                label={t<string>('Retrieving destination chain fees')}
+                variant='appPadded'
+              />
+            )
+          }
         </Modal.Columns>
       </Modal.Content>
       <Modal.Actions onCancel={onClose}>
         <TxButton
           accountId={senderId}
           icon='share-square'
-          isDisabled={!hasAvailable || !recipientId || !amount || (!isParachain && recipientParaId === INVALID_PARAID)}
+          isDisabled={!allowTeleport || !hasAvailable || !recipientId || !amount || !destinationApi || (!isParaTeleport && recipientParaId === INVALID_PARAID)}
           label={t<string>('Teleport')}
           onStart={onClose}
           params={params}
