@@ -54,22 +54,24 @@ import nodeEave from './nodes/eave.svg';
 import nodeEdgeware from './nodes/edgeware-circle.svg';
 import nodeEncointerNotee from './nodes/encointer-notee.svg';
 import nodeEncointerTeeproxy from './nodes/encointer-teeproxy.svg';
+import nodeFantour from './nodes/fantour.png';
 import nodeGalital from './nodes/galital-logo.png';
 import nodeGamePower from './nodes/gamepower.svg';
 import nodeGeek from './nodes/geek.svg';
 import nodeHanonycash from './nodes/hanonycash.svg';
 import nodeIdavoll from './nodes/idavoll.png';
-import nodeIntegritee from './nodes/integritee.png';
+import nodeIntegritee from './nodes/integritee.svg';
 import nodeIpse from './nodes/ipse.png';
 import nodeJupiter from './nodes/jupiter.svg';
 import nodeKhala from './nodes/khala.svg';
-import nodeKilt from './nodes/kilt.svg';
+import nodeKilt from './nodes/kilt.png';
 import nodeKlug from './nodes/klug.png';
 import nodeKonomi from './nodes/konomi.png';
 import nodeKulupu from './nodes/kulupu.svg';
 import nodeKylin from './nodes/kylin.png';
 import nodeLaminar from './nodes/laminar-circle.svg';
 import nodeLitentry from './nodes/litentry.png';
+import nodeLoomNetwork from './nodes/loom_network.png';
 import nodeManta from './nodes/manta.png';
 import nodeMath from './nodes/math.svg';
 import moonbeam from './nodes/moonbeam.png';
@@ -106,6 +108,7 @@ import nodeSora from './nodes/sora-substrate.svg';
 import nodeStafi from './nodes/stafi.png';
 import nodeStatemine from './nodes/statemine.svg';
 import nodeSubDAO from './nodes/subdao.png';
+import nodeSubGame from './nodes/subgame.svg';
 import nodeSubsocial from './nodes/subsocial.svg';
 import nodeSubstrate from './nodes/substrate-hexagon.svg';
 import nodeTernoa from './nodes/ternoa.svg';
@@ -132,6 +135,8 @@ export const chainLogos = Object.entries({
   'Ares PC1': nodeAres,
   'Beast Developer': nodeBeast,
   'Bholdus Testnet': nodeBholdus,
+  Bifrost: nodeBifrost,
+  'Bifrost Asgard CC4': nodeBifrost,
   ChainX: nodeChainx,
   'Charcoal Testnet': nodeCentrifuge,
   'Crust PC1': nodeCrust,
@@ -154,8 +159,6 @@ export const chainLogos = Object.entries({
   'HydraDX Snakenet Gen2': chainSnakenet,
   'HydraDX Snakenet Gen3': chainSnakenet,
   Idavoll: nodeIdavoll,
-  'IntegriTEE Network': nodeIntegritee,
-  'IntegriTEE PC1': nodeIntegritee,
   IpseTestnet: nodeIpse,
   'Jupiter A1': nodeJupiter,
   'Jupiter PC1': nodeJupiter,
@@ -166,12 +169,15 @@ export const chainLogos = Object.entries({
   'KILT Testnet': nodeKilt,
   KlugDossier: nodeKlug,
   Konomi: nodeKonomi,
+  Kpron: nodeApron,
   Kusama: chainKusama, // new name after CC3
   'Kusama CC1': chainKusama,
   'Kusama CC2': chainKusama,
   'Kusama CC3': chainKusama,
   'Kylin Testnet': nodeKylin,
   Litentry: nodeLitentry,
+  'Loom Network Local': nodeLoomNetwork,
+  LoomNetwork: nodeLoomNetwork,
   'Manta Testnet': nodeManta,
   Mars: nodeAres,
   'MathChain PC1': nodeMath,
@@ -186,6 +192,7 @@ export const chainLogos = Object.entries({
   'NFTMart Testnet': nodeNFTMart,
   'OAK Testnet': oakTestnet,
   'OriginTrail Parachain': nodeOriginTrail,
+  'OriginTrail Parachain Testnet': nodeOriginTrail,
   Pangolin: nodePangolin,
   'Parami PC2': nodeParami,
   'Phala PC1': nodePhala,
@@ -209,6 +216,9 @@ export const chainLogos = Object.entries({
   'Statemint Test': nodeStatemine,
   'Steam PC': nodeEave,
   'SubDAO PC1': nodeSubDAO,
+  subgame: nodeSubGame,
+  'SubGame Gamma': nodeSubGame,
+  'SubGame Staging': nodeSubGame,
   Subsocial: nodeSubsocial,
   'Subsocial PC': nodeSubsocial,
   Tick: chainRococoTick,
@@ -236,7 +246,6 @@ export const chainLogos = Object.entries({
 
 export const nodeLogos = Object.entries({
   'Acala Node': nodeAcala,
-  'airalab-robonomics': nodeRobonomics,
   'Apron Node': nodeApron,
   'Apron Parachain Collator': nodeApron,
   'Ares Node': nodeAres,
@@ -270,6 +279,7 @@ export const nodeLogos = Object.entries({
   'Encointer Node': nodeEncointerNotee,
   'Encointer Node noTEE': nodeEncointerNotee,
   'Encointer Node TEE proxy': nodeEncointerTeeproxy,
+  'Fantour Node': nodeFantour,
   'Galital Parachain Collator': nodeGalital,
   Galois: nodeMath,
   'GamePower Node': nodeGamePower,
@@ -277,6 +287,7 @@ export const nodeLogos = Object.entries({
   'Halongbay Parachain Collator': nodePolkaFoundry,
   hanonycash: nodeHanonycash,
   'Idavoll Node': nodeIdavoll,
+  'Integritee Collator': nodeIntegritee,
   IpseTestnet: nodeIpse,
   Khala: nodeKhala,
   'Khala Node': nodeKhala,
@@ -284,6 +295,7 @@ export const nodeLogos = Object.entries({
   'KILT Local': nodeKilt,
   'KILT Peregrine Testnet': nodeKilt,
   'Klug Dossier Node': nodeKlug,
+  'Kpron Collator': nodeApron,
   kulupu: nodeKulupu,
   'Kylin Node': nodeKylin,
   'Laminar Node': nodeLaminar,
@@ -299,8 +311,9 @@ export const nodeLogos = Object.entries({
   'node-template': nodeSubstrate,
   'Nodle Chain Node': nodeNodle,
   'OAK Testnet': oakTestnet,
-  Opportunity: nodeOpportunity,
+  'Opportunity Standalone Testnet': nodeOpportunity,
   'OriginTrail Parachain': nodeOriginTrail,
+  'OriginTrail Parachain Testnet': nodeOriginTrail,
   Pangolin: nodePangolin,
   Parami: nodeParami,
   'parity-polkadot': nodePolkadot,
@@ -323,6 +336,7 @@ export const nodeLogos = Object.entries({
   'ReAlis Network': nodeRealis,
   'Rio Defi Chain Node': nodeRiochain,
   'RioChain Staging': nodeRiochain,
+  robonomics: nodeRobonomics,
   Sakura: nodeSakura,
   Shadow: nodeShadow,
   sherpax: nodeChainx,
@@ -333,6 +347,9 @@ export const nodeLogos = Object.entries({
   'Statemine Collator': nodeStatemine,
   'Statemint Collator': nodeStatemine,
   'SubDAO Collator': nodeSubDAO,
+  subgame: nodeSubGame,
+  'SubGame Gamma': nodeSubGame,
+  'SubGame Staging': nodeSubGame,
   'Subsocial Node': nodeSubsocial,
   'Subsocial PC': nodeSubsocial,
   'subsocial-node': nodeSubsocial,
@@ -408,6 +425,7 @@ export const namedLogos: Record<string, unknown> = {
   encointer_cantillon: nodeEncointerTeeproxy,
   encointer_gesell: nodeEncointerNotee,
   equilibrium: chainEquilibrium,
+  fantour: nodeFantour,
   galital: nodeGalital,
   galois: nodeMath,
   gamepower: nodeGamePower,
@@ -423,11 +441,13 @@ export const namedLogos: Record<string, unknown> = {
   khala: nodeKhala,
   kilt: nodeKilt,
   klugdossier: nodeKlug,
+  kpron: nodeApron,
   kulupu: nodeKulupu,
   kusama: chainKusama,
   kylin: nodeKylin,
   laminar: nodeLaminar,
   litentry: nodeLitentry,
+  loomNetwork: nodeLoomNetwork,
   manta: nodeManta,
   mars: nodeAres,
   moonbaseAlpha: moonbeam,
@@ -439,7 +459,7 @@ export const namedLogos: Record<string, unknown> = {
   nodle: nodeNodle,
   'oak-testnet': oakTestnet,
   opportunity: nodeOpportunity,
-  origintrail: nodeOriginTrail,
+  'origintrail-parachain-testnet': nodeOriginTrail,
   pangolin: nodePangolin,
   phala: nodePhala,
   phoenix: nodePhoenix,
@@ -454,6 +474,8 @@ export const namedLogos: Record<string, unknown> = {
   prism: nodePrism,
   realis: nodeRealis,
   riochain: nodeRiochain,
+  robonomics: nodeRobonomics,
+  rocky: nodeCrust,
   rococo: chainRococo,
   rococoAcala: nodeAcala,
   rococoApron: nodeApron,
@@ -472,16 +494,17 @@ export const namedLogos: Record<string, unknown> = {
   rococoGenshiro: chainGenshiro,
   rococoHydrate: chainHydrate,
   rococoIdavoll: nodeIdavoll,
-  rococoIntegritee: nodeIntegritee,
   rococoJupiter: nodeJupiter,
   rococoKilt: nodeKilt,
   rococoKonomi: nodeKonomi,
   rococoKylin: nodeKylin,
   rococoLaminar: nodeLaminar,
   rococoLitentry: nodeLitentry,
+  rococoLoomNetwork: nodeLoomNetwork,
   rococoManta: nodeManta,
   rococoMathChain: nodeMath,
   rococoMoonrock: nodeMoonrock,
+  rococoOriginTrail: nodeOriginTrail,
   rococoParami: nodeParami,
   rococoPhala: nodePhala,
   rococoPhoenix: nodePhoenix,
@@ -489,7 +512,6 @@ export const namedLogos: Record<string, unknown> = {
   rococoPolkabtc: chainPolkaBTC,
   rococoPolkaFoundry: nodePolkaFoundry,
   rococoPrism: nodePrism,
-  rococoRobonomics: nodeRobonomics,
   rococoStatemint: nodeStatemine,
   rococoSubDAO: nodeSubDAO,
   rococoSubsocial: nodeSubsocial,
@@ -512,6 +534,9 @@ export const namedLogos: Record<string, unknown> = {
   stafi: nodeStafi,
   statemine: nodeStatemine,
   statemint: nodeStatemine,
+  subgame: nodeSubGame,
+  'SubGame Gamma': nodeSubGame,
+  'SubGame Staging': nodeSubGame,
   subsocial: nodeSubsocial,
   substrate: nodeSubstrate,
   'ternoa-chaos': nodeTernoa,
