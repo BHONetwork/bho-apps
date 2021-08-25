@@ -44,6 +44,7 @@ import hanonycash from './hanonycash';
 import hydrate from './hydrate';
 import idavoll from './idavoll';
 import integritee from './integritee';
+import interbtc from './interbtc';
 import ipse from './ipse';
 import jupiter from './jupiter';
 import jupiterRococo from './jupiter-rococo';
@@ -64,13 +65,13 @@ import oakTestnet from './oak-testnet';
 import opportunity from './opportunity';
 import origintrail from './origintrail';
 import pangolin from './pangolin';
+import parallel from './parallel';
 import parami from './parami';
 import phala from './phala';
 import phalaParachain from './phala-parachain';
 import phoenix from './phoenix';
 import plasm from './plasm';
 import plasmParachain from './plasm-parachain';
-import polkabtc from './polkabtc';
 import polkadex from './polkadex';
 import polkafoundry from './polkafoundry';
 import polymesh from './polymesh';
@@ -95,6 +96,7 @@ import vlnrococo from './vln-rococo';
 import vodka from './vodka';
 import web3games from './web3games';
 import westlake from './westlake';
+import zCloak from './zCloak';
 import zeitgeist from './zeitgeist';
 import zenlink from './zenlink';
 import zero from './zero';
@@ -120,7 +122,6 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'bifrost-parachain': bifrostParachain,
   'bitcountry-node': bitcountry,
   'bitcountry-parachain': bitcountryParachain,
-  'btc-parachain': polkabtc,
   bholdus,
   canvas,
   'centrifuge-chain': centrifugeChain,
@@ -151,9 +152,12 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'hack-hydra-dx': hydrate,
   halongbay: polkafoundry,
   hanonycash,
+  heiko: { ...parallel },
   'hydra-dx': hydrate,
   idavoll,
   'integritee-parachain': integritee,
+  'interbtc-parachain': interbtc,
+  'interbtc-standalone': interbtc,
   'ipse-node': ipse,
   'jupiter-prep': jupiter,
   'jupiter-rococo': jupiterRococo,
@@ -212,6 +216,7 @@ const spec: Record<string, OverrideBundleDefinition> = {
   'unit-parachain': unitv,
   vodka,
   'web3games-node': web3games,
+  'zcloak-network': zCloak,
   zeitgeist: zeitgeist
 };
 
