@@ -25,7 +25,28 @@ const definitions: OverrideBundleDefinition = {
           max_transfer_amount: 'Option<Balance>'
         }
       }
+    }, {
+      minmax: [0, undefined],
+      types: {
+        'chainbridge::ChainId': 'u8',
+        ChainId: 'u8',
+        ResourceId: '[u8; 32]',
+        DepositNonce: 'u64',
+        ProposalVotes: {
+          votes_for: 'Vec<AccountId>',
+          votes_against: 'Vec<AccountId>',
+          status: 'enum'
+        },
+        Erc721Token: {
+          id: 'TokenId',
+          metadata: 'Vec<u8>'
+        },
+        TokenId: 'U256',
+        Address: 'MultiAddress',
+        LookupSource: 'MultiAddress'
+      }
     }
+
   ]
 };
 
