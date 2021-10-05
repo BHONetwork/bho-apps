@@ -21,7 +21,7 @@ export function createTesting (t: TFunction, firstOnly?: boolean): LinkOption[] 
       info: 'bholdus',
       text: t('rpc.test.bholdus', 'Bholdus Testnet', { ns: 'apps-config' }),
       providers: {
-        'Bholdus Network': 'wss://rpc-testnet1.bholdus.network'
+        'Bholdus Network': 'wss://rpc-testnet.bholdus.network'
       }
     }
   ], firstOnly);
