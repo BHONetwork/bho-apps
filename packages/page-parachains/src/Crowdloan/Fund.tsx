@@ -20,7 +20,6 @@ interface Props {
   bestHash?: string;
   bestNumber?: BN;
   className?: string;
-  isOdd?: boolean;
   isOngoing?: boolean;
   leasePeriod?: LeasePeriod;
   value: Campaign;
@@ -31,7 +30,7 @@ interface LastChange {
   prevLength: number;
 }
 
-function Fund ({ bestHash, bestNumber, className, isOdd, isOngoing, leasePeriod, value: { info: { cap, depositor, end, firstPeriod, lastPeriod, raised, verifier }, isCapped, isEnded, isWinner, paraId } }: Props): React.ReactElement<Props> {
+function Fund ({ bestHash, bestNumber, className = '', isOngoing, leasePeriod, value: { info: { cap, depositor, end, firstPeriod, lastPeriod, raised, verifier }, isCapped, isEnded, isWinner, paraId } }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
   const { api } = useApi();
   const { isAccount } = useAccounts();
@@ -79,7 +78,7 @@ function Fund ({ bestHash, bestNumber, className, isOdd, isOngoing, leasePeriod,
   }, [contributorsHex, blockHash]);
 
   return (
-    <tr className={`${className || ''} ${isOdd ? 'isOdd' : 'isEven'}`}>
+    <tr className={className}>
       <td className='number'><h1>{formatNumber(paraId)}</h1></td>
       <td className='badge'><ParaLink id={paraId} /></td>
       <td className='media--800'>
@@ -111,9 +110,7 @@ function Fund ({ bestHash, bestNumber, className, isOdd, isOngoing, leasePeriod,
         <FormatBalance
           value={raised}
           withCurrency={false}
-        />&nbsp;/&nbsp;<FormatBalance
-          value={cap}
-        />
+        />&nbsp;/&nbsp;<FormatBalance value={cap} />
         <div>{percentage}</div>
         {myAccounts.length !== 0 && (
           <Expander

@@ -22,11 +22,11 @@ export function createRococo (t: TFunction): EndpointOption {
     info: 'rococo',
     text: t('rpc.rococo', 'Rococo', { ns: 'apps-config' }),
     providers: {
-      Parity: 'wss://rococo-rpc.polkadot.io',
-      OnFinality: 'wss://rococo.api.onfinality.io/public-ws',
-      'Patract Elara': 'wss://rococo.elara.patract.io'
+      Parity: 'wss://rococo-rpc.polkadot.io'
+      // OnFinality: 'wss://rococo.api.onfinality.io/public-ws', // After reset, node misses host functions
+      // 'Patract Elara': 'wss://pub.elara.patract.io/rococo', // After reset node is not available
+      // Pinknode: 'wss://rpc.pinknode.io/rococo/explorer' // After reset, syncs to old chain
       // 'Ares Protocol': 'wss://rococo.aresprotocol.com' // https://github.com/polkadot-js/apps/issues/5767
-      // Pinknode: 'wss://rpc.pinknode.io/rococo/explorer' // https://github.com/polkadot-js/apps/issues/5721
     },
     linked: [
       // these are the base chains
@@ -182,6 +182,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoGenshiro',
+        isDisabled: true, // Rococo reset
         paraId: 2021,
         text: t('rpc.rococo.genshiro', 'Genshiro', { ns: 'apps-config' }),
         providers: {
@@ -190,6 +191,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoHalongbay',
+        isDisabled: true, // Rococo reset
         paraId: 2018,
         text: t('rpc.rococo.halongbay', 'Halongbay', { ns: 'apps-config' }),
         providers: {
@@ -224,6 +226,15 @@ export function createRococo (t: TFunction): EndpointOption {
         }
       },
       {
+        info: 'rococoInterBTC',
+        isDisabled: true, // Rococo reset
+        paraId: 2088,
+        text: t('rpc.rococo.interbtc', 'InterBTC PC1', { ns: 'apps-config' }),
+        providers: {
+          Interlay: 'wss://api-rococo.interlay.io/parachain'
+        }
+      },
+      {
         info: 'rococoKilt',
         isDisabled: true, // Rococo reset
         paraId: 12623,
@@ -243,10 +254,20 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoKylin',
+        isDisabled: true, // Rococo reset
         paraId: 2013,
         text: t('rpc.kylin-node.co.uk', 'Kylin Network', { ns: 'apps-config' }),
         providers: {
           'Kylin Network': 'wss://rpc.kylin-node.co.uk'
+        }
+      },
+      {
+        info: 'rococoSingLavender',
+        isDisabled: true, // Rococo reset
+        paraId: 2104,
+        text: t('rpc.rococo.singlavender', 'Lavender by SingNetwork', { ns: 'apps-config' }),
+        providers: {
+          SingNetwork: 'wss://rpc-lavender.singnetwork.io'
         }
       },
       {
@@ -260,6 +281,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoLoomNetwork',
+        isDisabled: true, // Rococo reset
         paraId: 2043,
         text: t('rpc.rococo.loomnetwork', 'Loom Network', { ns: 'apps-config' }),
         providers: {
@@ -304,6 +326,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoOriginTrail',
+        isDisabled: true, // Rococo reset
         paraId: 2037,
         text: t('rpc.rococo.origintrail', 'OriginTrail Parachain', { ns: 'apps-config' }),
         providers: {
@@ -356,15 +379,6 @@ export function createRococo (t: TFunction): EndpointOption {
         }
       },
       {
-        info: 'rococoInterBTC',
-        isDisabled: true, // Rococo reset
-        paraId: 21,
-        text: t('rpc.rococo.interbtc', 'InterBTC PC1', { ns: 'apps-config' }),
-        providers: {
-          Interlay: 'wss://rococo.polkabtc.io/api/parachain'
-        }
-      },
-      {
         info: 'rococoPolkaFoundry',
         isDisabled: true, // Rococo reset
         paraId: 1111,
@@ -389,6 +403,15 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rococo.robonomics', 'Robonomics PC2', { ns: 'apps-config' }),
         providers: {
           Airalab: 'wss://rococo.parachain.robonomics.network'
+        }
+      },
+      {
+        info: 'rococoStandard',
+        isDisabled: true, // Rococo reset
+        paraId: 2003,
+        text: t('rpc.rococo.standard', 'Standard', { ns: 'apps-config' }),
+        providers: {
+          'Standard Protocol': 'wss://rpc.rococo.standard.tech'
         }
       },
       {
@@ -429,6 +452,7 @@ export function createRococo (t: TFunction): EndpointOption {
       },
       {
         info: 'rococoVln',
+        isDisabled: true, // Rococo reset
         paraId: 2007,
         text: t('rpc.rococo.vln', 'Valibre Network PC', { ns: 'apps-config' }),
         providers: {

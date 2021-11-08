@@ -54,7 +54,6 @@ export default React.memo(styled(Spinner)`
       margin: 0 auto;
     }
   }
-
   img {
     border: 1px solid transparent;
     border-radius: 10rem;

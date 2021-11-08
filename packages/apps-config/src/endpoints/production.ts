@@ -15,7 +15,7 @@ import { expandEndpoints } from './util';
 //   value: The actual hosted secure websocket endpoint
 
 // alphabetical based on chain name
-export function createProduction (t: TFunction, firstOnly?: boolean): LinkOption[] {
+export function createProduction (t: TFunction, firstOnly: boolean, withSort: boolean): LinkOption[] {
   return expandEndpoints(t, [
     {
       info: 'bholdus',
@@ -24,5 +24,5 @@ export function createProduction (t: TFunction, firstOnly?: boolean): LinkOption
         'Bholdus Network': 'wss://mainnet.bholdus.com'
       }
     }
-  ], firstOnly);
+  ], firstOnly, withSort);
 }
