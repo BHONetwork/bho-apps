@@ -12,7 +12,7 @@ import { createTesting } from './testing';
 
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
-export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOption[] {
+export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = true): LinkOption[] {
   return [
     // {
     //   isDisabled: false,
@@ -30,7 +30,7 @@ export function createWsEndpoints (t: TFunction, firstOnly?: boolean): LinkOptio
       textBy: '',
       value: ''
     },
-    ...createTesting(t, firstOnly),
+    ...createTesting(t, firstOnly, withSort),
     {
       isDevelopment: true,
       isDisabled: false,

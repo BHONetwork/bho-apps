@@ -4,13 +4,13 @@
 import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
-import { ThemeDef } from '@polkadot/react-components/types';
+import { FlagColor as TagColor, ThemeDef } from '@polkadot/react-components/types';
 
 import Tooltip from './Tooltip';
 
 interface Props {
   className?: string;
-  color?: 'blue' | 'green' | 'grey' | 'orange' | 'pink' | 'red' | 'yellow' | 'theme';
+  color?: TagColor;
   hover?: React.ReactNode;
   label: React.ReactNode;
   size?: 'small' | 'tiny';
@@ -19,7 +19,7 @@ interface Props {
 let tagId = 0;
 
 function Tag ({ className = '', color = 'theme', hover, label, size = 'small' }: Props): React.ReactElement<Props> {
-  const { theme } = useContext<ThemeDef>(ThemeContext);
+  const { theme } = useContext(ThemeContext as React.Context<ThemeDef>);
   const [trigger] = useState(() => `tag-hover-${Date.now()}-${tagId++}`);
   const tooltipProps = hover
     ? { 'data-for': trigger, 'data-tip': true }
@@ -55,10 +55,6 @@ export default React.memo(styled(Tag)`
   white-space: nowrap;
   z-index: 1;
 
-  &.themeColor.darkTheme {
-    background-color: rgba(255,255,255,0.08);
-  }
-
   &.tinySize {
     font-size: .71428571rem;
   }
@@ -89,5 +85,9 @@ export default React.memo(styled(Tag)`
 
   &.yellowColor {
     background: darkgoldenrod;
+  }
+
+  &.themeColor.darkTheme {
+    background-color: rgba(255,255,255,0.08);
   }
 `);
