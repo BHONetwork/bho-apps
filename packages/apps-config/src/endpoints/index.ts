@@ -5,7 +5,7 @@ import type { TFunction } from 'i18next';
 import type { LinkOption } from './types';
 
 import { createDev } from './development';
-// import { createProduction } from './production';
+import { createProduction } from './production';
 // import { createKusamaRelay, createPolkadotRelay } from './productionRelays';
 import { createTesting } from './testing';
 // import { createRococoRelay, createWestendRelay } from './testingRelays';
@@ -14,15 +14,15 @@ export { CUSTOM_ENDPOINT_KEY } from './development';
 
 export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = true): LinkOption[] {
   return [
-    // {
-    //   isDisabled: false,
-    //   isHeader: true,
-    //   isSpaced: true,
-    //   text: t('rpc.header.live', 'Live networks', { ns: 'apps-config' }),
-    //   textBy: '',
-    //   value: ''
-    // },
-    // ...createProduction(t, firstOnly),
+    {
+      isDisabled: false,
+      isHeader: true,
+      isSpaced: true,
+      text: t('rpc.header.live', 'Live networks', { ns: 'apps-config' }),
+      textBy: '',
+      value: ''
+    },
+    ...createProduction(t, firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
