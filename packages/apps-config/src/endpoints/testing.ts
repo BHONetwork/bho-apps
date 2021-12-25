@@ -21,7 +21,7 @@ export function createTesting (t: TFunction, firstOnly: boolean, withSort: boole
       info: 'bholdus',
       text: t('rpc.test.bholdus', 'Bholdus Testnet', { ns: 'apps-config' }),
       providers: {
-        'Bholdus Network': 'wss://rpc-testnet.bholdus.network'
+        'Bholdus Network': 'wss://blockchain-wss.testnet.bholdus.net'
       }
     },
     {

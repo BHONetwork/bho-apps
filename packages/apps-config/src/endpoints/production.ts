@@ -21,7 +21,7 @@ export function createProduction (t: TFunction, firstOnly: boolean, withSort: bo
       info: 'bholdus',
       text: t('rpc.prod.bholdus', 'Bholdus', { ns: 'apps-config' }),
       providers: {
-        'Bholdus Network': 'wss://mainnet.bholdus.com'
+        'Bholdus Network': 'wss://blockchain-wss.bho.network'
       }
     }
   ], firstOnly, withSort);
