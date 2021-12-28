@@ -8,7 +8,7 @@ jobs:
   www:
     strategy:
       matrix:
-        step: ['build:release:www']
+        step: ['build']
     name: ${{ matrix.step }}
     if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'bholdus/bholdus-apps'"
     runs-on: ubuntu-latest
