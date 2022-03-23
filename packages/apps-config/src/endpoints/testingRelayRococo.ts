@@ -1,4 +1,4 @@
-// Copyright 2017-2021 @polkadot/apps-config authors & contributors
+// Copyright 2017-2022 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { TFunction } from 'i18next';
@@ -24,43 +24,39 @@ export function createRococo (t: TFunction): EndpointOption {
     providers: {
       Parity: 'wss://rococo-rpc.polkadot.io'
       // OnFinality: 'wss://rococo.api.onfinality.io/public-ws', // After reset, node misses host functions
-      // 'Patract Elara': 'wss://pub.elara.patract.io/rococo', // After reset node is not available
       // Pinknode: 'wss://rpc.pinknode.io/rococo/explorer' // After reset, syncs to old chain
       // 'Ares Protocol': 'wss://rococo.aresprotocol.com' // https://github.com/polkadot-js/apps/issues/5767
     },
+    teleport: [1000, 1002],
     linked: [
       // these are the base chains
-      {
-        info: 'rococoTick',
-        paraId: 100,
-        text: t('rpc.rococo.tick', 'Tick', { ns: 'apps-config' }),
-        providers: {
-          Parity: 'wss://tick-rpc.polkadot.io'
-        }
-      },
-      {
-        info: 'rococoTrick',
-        paraId: 110,
-        text: t('rpc.rococo.trick', 'Trick', { ns: 'apps-config' }),
-        providers: {
-          Parity: 'wss://trick-rpc.polkadot.io'
-        }
-      },
-      {
-        info: 'rococoTrack',
-        paraId: 120,
-        text: t('rpc.rococo.track', 'Track', { ns: 'apps-config' }),
-        providers: {
-          Parity: 'wss://track-rpc.polkadot.io'
-        }
-      },
       {
         info: 'rococoStatemint',
         paraId: 1000,
         text: t('rpc.rococo.statemint', 'Statemint', { ns: 'apps-config' }),
         providers: {
-          Parity: 'wss://statemint-rococo-rpc.parity.io'
-        }
+          Parity: 'wss://rococo-statemint-rpc.polkadot.io'
+        },
+        teleport: [-1]
+      },
+      {
+        info: 'rococoCanvas',
+        paraId: 1002,
+        text: t('rpc.rococo.canvas', 'Canvas', { ns: 'apps-config' }),
+        providers: {
+          Parity: 'wss://rococo-canvas-rpc.polkadot.io'
+        },
+        teleport: [-1]
+      },
+      {
+        info: 'encointer',
+        homepage: 'https://encointer.org/',
+        paraId: 1003,
+        text: t('rpc.rococo.encointer', 'Encointer Lietaer', { ns: 'apps-config' }),
+        providers: {
+          'Encointer Association': 'wss://rococo.api.encointer.org'
+        },
+        teleport: [-1]
       },
       // add any additional parachains here, alphabetical
       {
@@ -79,6 +75,14 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rococo.ares', 'Ares PC1', { ns: 'apps-config' }),
         providers: {
           'Ares Protocol': 'wss://rococo.parachain.aresprotocol.com'
+        }
+      },
+      {
+        info: 'rococoBasilisk',
+        paraId: 2090,
+        text: t('rpc.rococo.basilisk', 'Basilisk', { ns: 'apps-config' }),
+        providers: {
+          'Galactic Council': 'wss://rpc-01.basilisk-rococo.hydradx.io'
         }
       },
       {
@@ -163,12 +167,12 @@ export function createRococo (t: TFunction): EndpointOption {
         }
       },
       {
-        info: 'rococoEncointer',
-        isDisabled: true, // Rococo reset
-        paraId: 1862,
-        text: t('rpc.rococo.encointer', 'Encointer PC1', { ns: 'apps-config' }),
+        info: 'rocfinity',
+        isDisabled: false,
+        paraId: 2051,
+        text: t('rpc.rococo.efinity.io', 'Efinity', { ns: 'apps-config' }),
         providers: {
-          Encointer: 'wss://rococo.encointer.org'
+          Efinity: 'wss://rpc.rococo.efinity.io'
         }
       },
       {
@@ -229,18 +233,27 @@ export function createRococo (t: TFunction): EndpointOption {
         info: 'rococoInterBTC',
         isDisabled: true, // Rococo reset
         paraId: 2088,
-        text: t('rpc.rococo.interbtc', 'InterBTC PC1', { ns: 'apps-config' }),
+        text: t('rpc.rococo.interbtc', 'Interlay PC1', { ns: 'apps-config' }),
         providers: {
           Interlay: 'wss://api-rococo.interlay.io/parachain'
         }
       },
       {
-        info: 'rococoKilt',
-        isDisabled: true, // Rococo reset
-        paraId: 12623,
-        text: t('rpc.rococo.kilt', 'KILT PC1', { ns: 'apps-config' }),
+        info: 'rococoMoonsama',
+        isDisabled: false,
+        paraId: 2055,
+        text: t('rpc.rococo.moonsama', 'Moonsama', { ns: 'apps-config' }),
         providers: {
-          'KILT Protocol': 'wss://para.rococo-v1.kilt.io'
+          Moonsama: 'wss://moonsama-testnet-rpc.moonsama.com'
+        }
+      },
+      {
+        info: 'rococoKilt',
+        isDisabled: false,
+        paraId: 2015,
+        text: t('rpc.rococo.kilt', 'RILT', { ns: 'apps-config' }),
+        providers: {
+          'KILT Protocol': 'wss://rococo.kilt.io'
         }
       },
       {
@@ -259,6 +272,15 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.kylin-node.co.uk', 'Kylin Network', { ns: 'apps-config' }),
         providers: {
           'Kylin Network': 'wss://rpc.kylin-node.co.uk'
+        }
+      },
+      {
+        info: 'rococoSpreehafen',
+        isDisabled: false,
+        paraId: 2026,
+        text: t('rpc.rococo.spreehafen', 'Spreehafen', { ns: 'apps-config' }),
+        providers: {
+          DataHighway: 'wss://spreehafen.datahighway.com'
         }
       },
       {
@@ -340,6 +362,33 @@ export function createRococo (t: TFunction): EndpointOption {
         text: t('rpc.rococo.parami', 'Parami PC2', { ns: 'apps-config' }),
         providers: {
           Parami: 'wss://rococo.parami.io'
+        }
+      },
+      {
+        info: 'rococoTick',
+        isDisabled: true, // Rococo reset
+        paraId: 100,
+        text: t('rpc.rococo.tick', 'Tick', { ns: 'apps-config' }),
+        providers: {
+          Parity: 'wss://tick-rococo-rpc.polkadot.io'
+        }
+      },
+      {
+        info: 'rococoTrick',
+        isDisabled: true, // Rococo reset
+        paraId: 110,
+        text: t('rpc.rococo.trick', 'Trick', { ns: 'apps-config' }),
+        providers: {
+          Parity: 'wss://trick-rpc.polkadot.io'
+        }
+      },
+      {
+        info: 'rococoTrack',
+        isDisabled: true, // Rococo reset
+        paraId: 120,
+        text: t('rpc.rococo.track', 'Track', { ns: 'apps-config' }),
+        providers: {
+          Parity: 'wss://track-rpc.polkadot.io'
         }
       },
       {
