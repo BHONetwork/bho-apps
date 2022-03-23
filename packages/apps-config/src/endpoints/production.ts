@@ -19,9 +19,9 @@ export function createProduction (t: TFunction, firstOnly: boolean, withSort: bo
   return expandEndpoints(t, [
     {
       info: 'bholdus',
-      text: t('rpc.prod.bholdus', 'Bholdus', { ns: 'apps-config' }),
+      text: t('rpc.prod.bholdus', 'BHO Mainnet', { ns: 'apps-config' }),
       providers: {
-        'Bholdus Network': 'wss://blockchain-wss.bho.network'
+        'BHO Network': 'wss://api.bho.network/blockchain-wss'
       }
     }
   ], firstOnly, withSort);
