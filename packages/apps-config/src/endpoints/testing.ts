@@ -1,4 +1,4 @@
-// Copyright 2017-2021 @polkadot/apps-config authors & contributors
+// Copyright 2017-2022 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { TFunction } from 'i18next';
@@ -19,17 +19,11 @@ export function createTesting (t: TFunction, firstOnly: boolean, withSort: boole
     // alphabetical based on chain name, e.g. Amber, Arcadia, Beresheet, ...
     {
       info: 'bholdus',
-      text: t('rpc.test.bholdus', 'Bholdus Testnet', { ns: 'apps-config' }),
+      text: t('rpc.test.bholdus', 'BHO Testnet', { ns: 'apps-config' }),
       providers: {
-        'Bholdus Network': 'wss://blockchain-wss.testnet.bholdus.net'
-      }
-    },
-    {
-      info: 'bholdus',
-      text: t('rpc.test.bholdus', 'Bholdus Dev', { ns: 'apps-config' }),
-      providers: {
-        'Bholdus Network': 'wss://blockchain-wss.dev.bholdus.net'
+        'BHO Network': 'wss://api.testnet.bholdus.net/blockchain-wss'
       }
     }
+
   ], firstOnly, withSort);
 }
