@@ -4,10 +4,9 @@
 import type { TFunction } from '../types';
 import type { LinkOption } from './types';
 
-
 import { defaultT } from '../util';
 import { createDev } from './development';
-import { prodChains} from './production';
+import { prodChains } from './production';
 import { testChains } from './testing';
 import { expandEndpoints } from './util';
 
