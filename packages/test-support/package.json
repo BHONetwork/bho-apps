@@ -1,24 +1,24 @@
 {
-  "bugs": "https://github.com/polkadot-js/apps/issues",
-  "homepage": "https://github.com/polkadot-js/apps/tree/master/packages/test-support#readme",
+  "bugs": "https://github.com/bhonetwork/bholdus-apps/issues",
+  "homepage": "https://github.com/bhonetwork/bholdus-apps/tree/master/packages/test-support#readme",
   "license": "Apache-2.0",
   "name": "@polkadot/test-support",
   "private": true,
   "repository": {
     "directory": "packages/test-support",
     "type": "git",
-    "url": "https://github.com/polkadot-js/apps.git"
+    "url": "https://github.com/bhonetwork/bholdus-apps.git"
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.110.2-4",
+  "version": "0.116.2-51",
   "dependencies": {
-    "@testing-library/react": "^12.1.4",
-    "testcontainers": "^8.4.0"
+    "@testing-library/react": "^13.3.0",
+    "testcontainers": "^8.10.1"
   },
   "devDependencies": {
-    "@polkadot/types-support": "^7.13.1",
-    "@testing-library/jest-dom": "^5.16.2",
-    "tsconfig-paths": "^3.14.1"
+    "@polkadot/types-support": "^8.9.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "tsconfig-paths": "^4.0.0"
   }
 }

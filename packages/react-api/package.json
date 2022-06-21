@@ -1,23 +1,23 @@
 {
-  "bugs": "https://github.com/polkadot-js/apps/issues",
-  "homepage": "https://github.com/polkadot-js/apps/tree/master/packages/react-api#readme",
+  "bugs": "https://github.com/bhonetwork/bholdus-apps/issues",
+  "homepage": "https://github.com/bhonetwork/bholdus-apps/tree/master/packages/react-api#readme",
   "license": "Apache-2.0",
   "name": "@polkadot/react-api",
   "private": true,
   "repository": {
     "directory": "packages/react-api",
     "type": "git",
-    "url": "https://github.com/polkadot-js/apps.git"
+    "url": "https://github.com/bhonetwork/bholdus-apps.git"
   },
   "sideEffects": true,
   "type": "module",
-  "version": "0.110.2-4",
+  "version": "0.116.2-51",
   "dependencies": {
-    "@babel/runtime": "^7.17.8",
-    "@polkadot/api": "^7.13.1",
-    "@polkadot/extension-compat-metamask": "^0.42.10-1",
-    "@polkadot/extension-dapp": "^0.42.10-1",
-    "@substrate/connect": "^0.5.0",
+    "@babel/runtime": "^7.18.3",
+    "@polkadot/api": "^8.9.1",
+    "@polkadot/extension-compat-metamask": "^0.44.2-3",
+    "@polkadot/extension-dapp": "^0.44.2-3",
+    "@polkadot/rpc-provider": "^8.9.1",
     "fflate": "^0.7.3",
     "rxjs": "^7.5.5"
   }

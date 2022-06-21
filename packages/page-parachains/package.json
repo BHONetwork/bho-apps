@@ -1,20 +1,20 @@
 {
-  "bugs": "https://github.com/polkadot-js/apps/issues",
-  "homepage": "https://github.com/polkadot-js/apps/tree/master/packages/page-parachains#readme",
+  "bugs": "https://github.com/bhonetwork/bholdus-apps/issues",
+  "homepage": "https://github.com/bhonetwork/bholdus-apps/tree/master/packages/page-parachains#readme",
   "license": "Apache-2.0",
   "name": "@polkadot/app-parachains",
   "private": true,
   "repository": {
     "directory": "packages/page-parachains",
     "type": "git",
-    "url": "https://github.com/polkadot-js/apps.git"
+    "url": "https://github.com/bhonetwork/bholdus-apps.git"
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.110.2-4",
+  "version": "0.116.2-51",
   "dependencies": {
-    "@babel/runtime": "^7.17.8",
-    "@polkadot/react-components": "^0.110.2-4",
-    "@polkadot/react-query": "^0.110.2-4"
+    "@babel/runtime": "^7.18.3",
+    "@polkadot/react-components": "^0.116.2-51",
+    "@polkadot/react-query": "^0.116.2-51"
   }
 }

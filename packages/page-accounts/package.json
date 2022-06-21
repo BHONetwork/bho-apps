@@ -1,29 +1,29 @@
 {
-  "bugs": "https://github.com/polkadot-js/apps/issues",
-  "homepage": "https://github.com/polkadot-js/apps/tree/master/packages/page-accounts#readme",
+  "bugs": "https://github.com/bhonetwork/bholdus-apps/issues",
+  "homepage": "https://github.com/bhonetwork/bholdus-apps/tree/master/packages/page-accounts#readme",
   "license": "Apache-2.0",
   "name": "@polkadot/app-accounts",
   "private": true,
   "repository": {
     "directory": "packages/page-accounts",
     "type": "git",
-    "url": "https://github.com/polkadot-js/apps.git"
+    "url": "https://github.com/bhonetwork/bholdus-apps.git"
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.110.2-4",
+  "version": "0.116.2-51",
   "dependencies": {
-    "@babel/runtime": "^7.17.8",
-    "@polkadot/hw-ledger": "^8.6.1",
-    "@polkadot/phishing": "^0.10.20",
-    "@polkadot/react-components": "^0.110.2-4",
-    "@polkadot/react-hooks": "^0.110.2-4",
-    "@polkadot/util": "^8.6.1",
-    "@polkadot/vanitygen": "^0.50.4",
+    "@babel/runtime": "^7.18.3",
+    "@polkadot/hw-ledger": "^9.5.1",
+    "@polkadot/phishing": "^0.14.4",
+    "@polkadot/react-components": "^0.116.2-51",
+    "@polkadot/react-hooks": "^0.116.2-51",
+    "@polkadot/util": "^9.5.1",
+    "@polkadot/vanitygen": "^0.51.11",
     "detect-browser": "^5.3.0",
     "file-saver": "^2.0.5"
   },
   "devDependencies": {
-    "@polkadot/test-support": "0.110.2-4"
+    "@polkadot/test-support": "0.116.2-51"
   }
 }

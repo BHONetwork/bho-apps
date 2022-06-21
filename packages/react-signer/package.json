@@ -1,20 +1,20 @@
 {
-  "bugs": "https://github.com/polkadot-js/apps/issues",
-  "homepage": "https://github.com/polkadot-js/apps/tree/master/packages/react-signer#readme",
+  "bugs": "https://github.com/bhonetwork/bholdus-apps/issues",
+  "homepage": "https://github.com/bhonetwork/bholdus-apps/tree/master/packages/react-signer#readme",
   "license": "Apache-2.0",
   "name": "@polkadot/react-signer",
   "private": true,
   "repository": {
     "directory": "packages/react-signer",
     "type": "git",
-    "url": "https://github.com/polkadot-js/apps.git"
+    "url": "https://github.com/bhonetwork/bholdus-apps.git"
   },
   "sideEffects": false,
   "type": "module",
-  "version": "0.110.2-4",
+  "version": "0.116.2-51",
   "dependencies": {
-    "@babel/runtime": "^7.17.8",
-    "@polkadot/hw-ledger": "^8.6.1",
-    "@polkadot/react-components": "^0.110.2-4"
+    "@babel/runtime": "^7.18.3",
+    "@polkadot/hw-ledger": "^9.5.1",
+    "@polkadot/react-components": "^0.116.2-51"
   }
 }
