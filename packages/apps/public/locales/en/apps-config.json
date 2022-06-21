@@ -1,4 +1,14 @@
 {
+  "lightclient.experimental": "light client (experimental)",
+  "lng.detect": "Default browser language (auto-detect)",
+  "rpc.dev.custom": "Custom environment",
+  "rpc.dev.custom.entry": "Custom {{WS_URL}}",
+  "rpc.dev.custom.own": "Custom",
+  "rpc.dev.local": "Local Node",
+  "rpc.header.dev": "Development",
+  "rpc.header.live": "Live networks",
+  "rpc.header.test": "Test networks",
+  "rpc.hosted.via": "via {{host}}",
   "rpc.prod.bholdus": "Bholdus Mainnet",
   "rpc.test.bholdus": "Bholdus Testnet",
   "ss58.default": "Default for the connected node"

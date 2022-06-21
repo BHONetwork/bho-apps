@@ -59,7 +59,7 @@
     "test:skipped": "echo 'tests skipped'"
   },
   "dependencies": {
-    "@bholdus/types": "^0.1.0"
+    "@bholdus/types": "0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -117,6 +117,6 @@
     "@polkadot/wasm-crypto": "^6.1.1",
     "babel-core": "^7.0.0-bridge.0",
     "styled-components": "^5.3.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.4"
   }
 }
